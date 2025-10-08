@@ -6,11 +6,11 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:36:13 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/08 17:36:39 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/08 17:41:02 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "contact.hpp"
 
 void	Contact::set_firstname(const std::string& str) {
 	this->firstname = str;

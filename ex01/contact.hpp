@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 14:25:07 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/08 18:56:32 by atashiro         ###   ########.fr       */
+/*   Created: 2025/10/08 17:39:52 by atashiro          #+#    #+#             */
+/*   Updated: 2025/10/08 17:40:47 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <string>
 # include <iostream>
-# include "contact.hpp"
 
-class PhoneBook {
+class Contact {
 	public:
-		void	add_contact();
+		void	set_firstname(const std::string& str);
+		void	set_lastname(const std::string& str);
+		void	set_nickname(const std::string& str);
+		void	set_phonenumber(const std::string& str);
+		void	set_darkestsecret(const std::string& str);
 
 
 	private:
+		std::string	firstname;
+		std::string	lastname;
+		std::string	nickname;
+		std::string	phonenumber;
+		std::string	darkestsecret;
+
 };
-
-
-
 
 #endif
