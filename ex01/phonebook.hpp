@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:07 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/08 18:56:32 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/08 19:42:59 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 class PhoneBook {
 	public:
-		void	add_contact();
-
+		void		add_contact();
+		std::string	char_limit(const std::string& str);
 
 	private:
 };
