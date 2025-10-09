@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:05 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/09 15:41:04 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:59:57 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ std::string	PhoneBook::char_limit(const std::string& str){
 	if(str.length() > 10){
 		return(str.substr(0,9) + ".");
 	}
-	return (str);
+	return (std::string(10 -str.length(), ' ') + str);
 }
 
 
@@ -49,32 +49,52 @@ void	PhoneBook::add_contact(){
 		return;
 	update.set_firstname(input);
 
-		input = get_input("Enter last name: ");
+	input = get_input("Enter last name: ");
 	if (std::cin.eof())
 		return;
 	update.set_lastname(input);
 
-		input = get_input("Enter nickname: ");
+	input = get_input("Enter nickname: ");
 	if (std::cin.eof())
 		return;
 	update.set_nickname(input);
 
-		input = get_input("Enter phone number: ");
+	input = get_input("Enter phone number: ");
 	if (std::cin.eof())
 		return;
 	update.set_phonenumber(input);
-		input = get_input("Enter darkest secret: ");
+
+	input = get_input("Enter darkest secret: ");
 	if (std::cin.eof())
 		return;
 	update.set_darkestsecret(input);
+
 	this->person[this->index] = update;
-	// this->index++;
 	this->index++;
-	if (this->index == 8) {
+	if (this->index == 8)
 		this->index = 0;
-	}
+	std::cout<<"\033[1;92m* Successfully added! *\033[0m"<<std::endl;
 }
 
+
+void	PhoneBook::show_list(){
+	std::cout<<"┌──────────┬──────────┬──────────┬──────────┐"<<std::endl;
+	std::cout<<"│       No.│First Name│ Last Name│  NickName│"<<std::endl;
+	std::cout<<"├──────────┼──────────┼──────────┼──────────┤"<<std::endl;
+	for (int i = 0;i < this->index; i++){
+		std::cout<<"│"<<"         "<<i + 1;
+		std::cout<<"│"<< char_limit(this->person[i].get_firstname());
+		std::cout<<"│"<< char_limit(this->person[i].get_lastname());
+		std::cout<<"│"<< char_limit(this->person[i].get_nickname())<<"│";
+
+		std::cout<<std::endl;
+		if(i < index -1)
+			std::cout<<"├──────────┼──────────┼──────────┼──────────┤"<<std::endl;
+		else
+			std::cout<<"└──────────┴──────────┴──────────┴──────────┘"<<std::endl;
+
+	}
+}
 
 
 
@@ -94,7 +114,10 @@ void PhoneBook::show_contact(int index) {
 
 
 void	PhoneBook::search_contact(){
-
-
-	show_contact(1);
+	if (this->index == 0){
+		std::cout<<"\033[31m* Error: No contact. *\033[0m"<<std::endl;
+		return;
+	}
+	show_list();
+	// show_contact(1);
 }
