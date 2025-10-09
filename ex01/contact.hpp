@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:39:52 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/08 17:40:47 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:54:07 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ class Contact {
 		void	set_nickname(const std::string& str);
 		void	set_phonenumber(const std::string& str);
 		void	set_darkestsecret(const std::string& str);
+
+		const	std::string& Contact::get_firstname();
+		const	std::string& Contact::get_lastname();
+		const	std::string& Contact::get_nickname();
+		const	std::string& Contact::get_phonenumber();
+		const	std::string& Contact::get_darkestsecret();
 
 
 	private:

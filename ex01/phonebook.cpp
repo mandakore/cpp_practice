@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:05 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/08 19:51:32 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:45:13 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ std::string get_input(const std::string& prompt) {
 	while (1) {
 		std::cout << prompt;
 		std::getline(std::cin, input);
-		if (std::cin.eof()) {
-			return "";
-		}
 		if (!input.empty()) {
 			break;
 		}
-		std::cout << "Field cannot be empty. Please try again." << std::endl;
+		std::cout << "Empty. Please try again." << std::endl;
 	}
 	return input;
 }
