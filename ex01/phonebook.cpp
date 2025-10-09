@@ -6,13 +6,14 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:05 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/09 19:59:57 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/09 21:36:19 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 PhoneBook::PhoneBook() {
 	index = 0;
@@ -119,5 +120,22 @@ void	PhoneBook::search_contact(){
 		return;
 	}
 	show_list();
-	// show_contact(1);
+	std::cout << "Enter the index of the contact to display: ";
+	std::string input;
+	std::getline(std::cin, input);
+
+
+
+		if (std::cin.eof()) return;
+
+	// 入力が数字であるかチェック
+	for (size_t i = 0; i < input.length(); ++i) {
+		if (!isdigit(input[i])) {
+			std::cout << "Error: Invalid input. Please enter a number." << std::endl;
+			return;
+		}
+	}
+
+	int number = atoi(input.c_str());
+	show_contact(number);
 }
