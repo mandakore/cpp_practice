@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:34:20 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/08 19:01:20 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/09 14:31:08 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(){
 			phonebook.add_contact();
 		}
 		else if(command == "SEARCH"){
-			std::cout<<"search\n";
+			phonebook.search_contact();
 		}
 		else if(command == "EXIT"){
 			break;

@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:36:13 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/09 11:52:51 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:35:55 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ const std::string& Contact::get_nickname(){
 }
 
 const std::string& Contact::get_phonenumber(){
-	return (this->firstname);
+	return (this->phonenumber);
 }
 
 const std::string& Contact::get_darkestsecret(){
-	return (this->firstname);
+	return (this->darkestsecret);
 }
