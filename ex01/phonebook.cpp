@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:05 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/09 21:36:19 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/10 15:07:35 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 PhoneBook::PhoneBook() {
 	index = 0;
+	max = 0;
 }
 
 std::string	PhoneBook::char_limit(const std::string& str){
@@ -72,8 +73,10 @@ void	PhoneBook::add_contact(){
 
 	this->person[this->index] = update;
 	this->index++;
-	if (this->index == 8)
+	if (this->index == 8){
 		this->index = 0;
+		this->max = 1;
+	}
 	std::cout<<"\033[1;92m* Successfully added! *\033[0m"<<std::endl;
 }
 

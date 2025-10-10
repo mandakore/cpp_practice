@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:34:20 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/09 14:31:08 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/10 12:23:45 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int main(){
 	while(1){
 		std::cout << "\033[1;36mEnter a command <<<ADD, SEARCH, EXIT>>>: \033[0m";
 		std::getline(std::cin, command);
+
+		if (std::cin.eof()){
+			break;
+		}
 		if(command == "ADD"){
 			phonebook.add_contact();
 		}
