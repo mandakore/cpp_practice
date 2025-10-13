@@ -1,8 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = awesome
-SRCS = phonebook.cpp contact.cpp main.cpp
+NAME =  BraiiiiiiinnnzzzZ
+SRCS =  main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
