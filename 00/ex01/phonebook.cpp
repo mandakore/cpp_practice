@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:05 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/10 15:07:35 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/10/13 17:10:25 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,24 @@ void	PhoneBook::add_contact(){
 
 
 void	PhoneBook::show_list(){
+
+	int	list_count;
+
+	if (this->max == 1)
+		list_count = 8;
+	else
+		list_count = this->index;
 	std::cout<<"┌──────────┬──────────┬──────────┬──────────┐"<<std::endl;
 	std::cout<<"│       No.│First Name│ Last Name│  NickName│"<<std::endl;
 	std::cout<<"├──────────┼──────────┼──────────┼──────────┤"<<std::endl;
-	for (int i = 0;i < this->index; i++){
+	for (int i = 0;i < list_count; i++){
 		std::cout<<"│"<<"         "<<i + 1;
 		std::cout<<"│"<< char_limit(this->person[i].get_firstname());
 		std::cout<<"│"<< char_limit(this->person[i].get_lastname());
 		std::cout<<"│"<< char_limit(this->person[i].get_nickname())<<"│";
 
 		std::cout<<std::endl;
-		if(i < index -1)
+		if(i < list_count -1)
 			std::cout<<"├──────────┼──────────┼──────────┼──────────┤"<<std::endl;
 		else
 			std::cout<<"└──────────┴──────────┴──────────┴──────────┘"<<std::endl;
@@ -103,7 +110,14 @@ void	PhoneBook::show_list(){
 
 
 void PhoneBook::show_contact(int index) {
-	if (index < 1) {
+
+	int	list_count;
+
+	if (this->max == 1)
+		list_count = 8;
+	else
+		list_count = this->index;
+	if (index < 1 || index > list_count) {
 		std::cout << "Error: Invalid index." << std::endl;
 		return;
 	}
@@ -118,7 +132,7 @@ void PhoneBook::show_contact(int index) {
 
 
 void	PhoneBook::search_contact(){
-	if (this->index == 0){
+	if (this->index == 0 && this->max == 0){
 		std::cout<<"\033[31m* Error: No contact. *\033[0m"<<std::endl;
 		return;
 	}
@@ -128,10 +142,8 @@ void	PhoneBook::search_contact(){
 	std::getline(std::cin, input);
 
 
-
 		if (std::cin.eof()) return;
 
-	// 入力が数字であるかチェック
 	for (size_t i = 0; i < input.length(); ++i) {
 		if (!isdigit(input[i])) {
 			std::cout << "Error: Invalid input. Please enter a number." << std::endl;
