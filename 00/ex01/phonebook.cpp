@@ -6,7 +6,7 @@
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:25:05 by atashiro          #+#    #+#             */
-/*   Updated: 2025/10/13 17:10:25 by atashiro         ###   ########.fr       */
+/*   Updated: 2025/11/09 15:29:08 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ std::string get_input(const std::string& prompt) {
 			break;
 		}
 		std::cout << "Empty. Please try again." << std::endl;
+		break;
 	}
 	return input;
 }

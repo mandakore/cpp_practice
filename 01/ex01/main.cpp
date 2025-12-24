@@ -5,33 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atashiro <atashiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 17:34:20 by atashiro          #+#    #+#             */
-/*   Updated: 2025/11/09 15:22:50 by atashiro         ###   ########.fr       */
+/*   Created: 2025/10/22 17:11:54 by atashiro          #+#    #+#             */
+/*   Updated: 2025/11/13 07:06:34 by atashiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "Zombie.hpp"
 
-int main(){
-	PhoneBook	phonebook;
-	std::string command;
-	while(1){
-			if (std::cin.eof()){
-			break;
-		}
-		std::cout << "\033[1;36mEnter a command <<<ADD, SEARCH, EXIT>>>: \033[0m";
-		std::getline(std::cin, command);
+int main(void) {
+	int N = 5;
+	std::cout << "--- Creating a horde of " << N << " Zombies ---" << std::endl;
 
-		if(command == "ADD"){
-			phonebook.add_contact();
+	Zombie* myHorde = zombieHorde(N, "HordeMember");
+
+	if (myHorde) {
+		for (int i = 0; i < N; i++) {
+			myHorde[i].announce();
 		}
-		else if(command == "SEARCH"){
-			phonebook.search_contact();
-		}
-		else if(command == "EXIT"){
-			break;
-		}
+
+		std::cout << "\n--- Deleting the horde ---" << std::endl;
+		delete[] myHorde;
 	}
-	return(0);
+
+	return (0);
 }
